@@ -4,6 +4,10 @@ import condiciones
 import entrada
 import resultados
 import validaciones
+import os #Para crear una función para hacer clear de la consola. Uso universal.
+
+def clearScreen():
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 def showMenu():
@@ -24,15 +28,18 @@ def systemExecution():
 
     #bucle del menú principal
     while option != 3:
+        clearScreen()
         showMenu()
         option = input("Selccione una opción (1-3): ").strip()#Selección del menu.
         print()#Espacio en blanco
 
         if option == "1": 
+            clearScreen()
             print("[Módulo de cálculo]")
             #Aun en desarrollo
         
         elif option == "2":
+            clearScreen()
             print("[Criterios de comisión y bono]")
             #Aun en desarollo
 
@@ -43,6 +50,7 @@ def systemExecution():
 
         elif option == "3":
             print("Saliendo del programa...")
+            break
 
         else:
             print("Opción invalida. Porfavor, ingrese un número del 1 - 3.")
@@ -51,6 +59,6 @@ def systemExecution():
             input("Presione enter para volver al menú principal...")
             print("\n" * 2) #Esto sirve para dejar mas espacio desues den input.
 
-        
+systemExecution()
 
         
