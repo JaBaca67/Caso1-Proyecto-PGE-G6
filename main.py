@@ -25,6 +25,7 @@ def showMenu():
 
 def systemExecution():
 
+    sellerList = [] #Lista para almacenar los datos de los vendedores.
     option = ""
 
     #bucle del menú principal
@@ -41,8 +42,8 @@ def systemExecution():
             sellerName = sellerData["sellerName"]
             sales = sellerData["sales"]
 
-            calculate_Comission = cal.calculateComission(sellerData["sales"], condiciones.determinePercentage(sellerData["sales"]))
-            calculate_Total_Incomes = cal.calculateTotalIncomes(calculate_Comission, condiciones.determineBonus(sellerData["sales"]))
+            calculateComission = cal.calculateComission(sellerData["sales"], condiciones.determinePercentage(sellerData["sales"]))
+            calculateTotalIncomes = cal.calculateTotalIncomes(calculateComission, condiciones.determineBonus(sellerData["sales"]))
 
             resultados.showData(sellerData)
 
@@ -55,14 +56,17 @@ def systemExecution():
             #Aun en desarollo
 
             #Siguiente prints son temporales, aun puede cambiar a futuro.
-            print("• Ventas < $5,000      -> 5% de comisión")
-            print("• Ventas $5,000-$9,999 -> 10% de comisión")
-            print("• Ventas >= $10,000    -> 15% de comisión + Bono adicional\n")
+            print("• Ventas >= C$20,000   -> C$2,000 de bono")
+            print("• Ventas >= C$15,000    -> 10% de comisión + C$1,000 de bono")
+            print("• Ventas >= C$10,000 -> 8% de comisión")
+            print("• Ventas >= C$5,000    -> 5% de comisión")
+            print("• Ventas < C$5,000    -> 3% de comisión")
 
         elif option == "3":
             clearScreen()
             print("[Datos de todos los vendedores]")
             #Aun en desarrollo
+            
 
         elif option == "4":
             print("Saliendo del programa...")
