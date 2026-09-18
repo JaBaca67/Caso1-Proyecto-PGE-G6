@@ -1,7 +1,7 @@
 #Main donde ocurre y trabajan todos los modulos.
-import calculos
+import calculos as cal
 import condiciones
-import entrada
+import entrada as entra
 import resultados
 import validaciones
 import os #Para crear una función para hacer clear de la consola. Uso universal.
@@ -35,7 +35,17 @@ def systemExecution():
 
         if option == "1": 
             clearScreen()
-            print("[Módulo de cálculo]")
+            print("[Módulo de Registro y Cálculo de Comisiones]")
+            sellerData = entra.readInfo()
+            sellerName = sellerData["sellerName"]
+            sales = sellerData["sales"]
+
+            calculate_Comission = cal.calculateComission(sellerData["sales"], condiciones.determinePercentage(sellerData["sales"]))
+            calculate_Total_Incomes = cal.calculateTotalIncomes(calculate_Comission, condiciones.determineBonus(sellerData["sales"]))
+
+            resultados.showData(sellerData)
+            
+
             #Aun en desarrollo
         
         elif option == "2":
@@ -59,6 +69,7 @@ def systemExecution():
             input("Presione enter para volver al menú principal...")
             print("\n" * 2) #Esto sirve para dejar mas espacio desues den input.
 
-systemExecution()
+if __name__ == "__main__":
+    systemExecution()
 
         

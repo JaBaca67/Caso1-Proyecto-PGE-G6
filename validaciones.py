@@ -9,7 +9,7 @@ def validar_numero(mensaje):
 
             if dato == "":
                 raise ValueError("El dato no puede estar vacio.")
- 
+
             numero = float(dato)
 
             if numero < 0:
