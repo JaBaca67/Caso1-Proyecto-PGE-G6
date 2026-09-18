@@ -7,12 +7,12 @@ def determinePercentage(sales):
         return 0.05
     else:
         return 0.03
-    
+
+
 def determineBonus(sales):
-    if sales >= 20000:
-        return 2000
-    elif sales >= 15000:
-        return 1000
-    else:
-        return 0
-    
+    monthlyGoal = 15000
+    bonusAmount = 1000
+
+    if sales >= monthlyGoal:
+        return bonusAmount
+    return 0  # Cambio en la funcion determine para que solo tengamos una metas mensual.

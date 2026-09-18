@@ -1,10 +1,11 @@
-#Main donde ocurre y trabajan todos los modulos.
+# Main donde ocurre y trabajan todos los modulos.
 import calculos as cal
 import condiciones
 import entrada as entra
 import resultados
 import validaciones
-import os #Para crear una función para hacer clear de la consola. Uso universal.
+import os  # Para crear una función para hacer clear de la consola. Uso universal.
+
 
 def clearScreen():
     os.system("cls" if os.name == "nt" else "clear")
@@ -19,37 +20,43 @@ def showMenu():
     print("2. Ver criterios de comisión y metas de bono")
     print("3. Ver datos de todos los vendedores")
     print("4. Salir del programa")
-    #Nota estas opciciones del menu son temporales. Aun se pueden organizar mejor. Más tarde lo hago 😎
+    # Nota estas opciciones del menu son temporales. Aun se pueden organizar mejor. Más tarde lo hago 😎
 
     print("═════════════════════════════════════════════════════════════════════")
 
+
 def systemExecution():
 
-    sellerList = [] #Lista para almacenar los datos de los vendedores.
+    sellerList = []  # Lista para almacenar los datos de los vendedores.
     option = ""
 
-    #bucle del menú principal
+    # bucle del menú principal
     while option != "4":
         clearScreen()
         showMenu()
-        option = input("Selccione una opción (1-4): ").strip()#Selección del menu.
-        print()#Espacio en blanco
+        option = input("Selccione una opción (1-4): ").strip()  # Selección del menu.
+        print()  # Espacio en blanco
 
-        if option == "1": 
+        if option == "1":
             clearScreen()
-            sellerData = entra.readInfo()# Lee la información del vendedor y la almacena en un diccionario.
+            sellerData = (
+                entra.readInfo()
+            )  # Lee la información del vendedor y la almacena en un diccionario.
 
-            completeSellerData = resultados.showData(sellerData)# Muestra los datos del vendedor y calcula las comisiones y el bono, retornando un diccionario con toda la información.
+            completeSellerData = resultados.showData(
+                sellerData
+            )  # Muestra los datos del vendedor y calcula las comisiones y el bono, retornando un diccionario con toda la información.
 
-            sellerList.append(completeSellerData)# Agrega el diccionario con toda la información del vendedor a la lista de vendedores.
-        
+            sellerList.append(
+                completeSellerData
+            )  # Agrega el diccionario con toda la información del vendedor a la lista de vendedores.
+
         elif option == "2":
             clearScreen()
             print("[Criterios de comisión y bono]")
-            #Aun en desarollo
+            # Aun en desarollo
 
-            #Siguiente prints son temporales, aun puede cambiar a futuro.
-            print("• Ventas >= C$20,000   -> C$2,000 de bono")
+            # Siguiente prints son temporales, aun puede cambiar a futuro.
             print("• Ventas >= C$15,000    -> 10% de comisión + C$1,000 de bono")
             print("• Ventas >= C$10,000 -> 8% de comisión")
             print("• Ventas >= C$5,000    -> 5% de comisión")
@@ -58,7 +65,6 @@ def systemExecution():
         elif option == "3":
             clearScreen()
             resultados.showAllData(sellerList)
-            
 
         elif option == "4":
             print("Saliendo del programa...")
@@ -69,10 +75,9 @@ def systemExecution():
 
         if option != "4":
             input("Presione enter para volver al menú principal...")
-            print("\n" * 2) #Esto sirve para dejar mas espacio desues den input.
+            print("\n" * 2)  # Esto sirve para dejar mas espacio desues den input.
 
-#Ejecuta el sistema solo si el archivo se corre directamente desde main
+
+# Ejecuta el sistema solo si el archivo se corre directamente desde main
 if __name__ == "__main__":
-    systemExecution() 
-
-        
+    systemExecution()
