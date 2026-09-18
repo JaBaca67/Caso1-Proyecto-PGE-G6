@@ -39,15 +39,10 @@ def systemExecution():
             clearScreen()
             print("[Módulo de Registro y Cálculo de Comisiones]")
             sellerData = entra.readInfo()
-            sellerName = sellerData["sellerName"]
-            sales = sellerData["sales"]
 
-            calculateComission = cal.calculateComission(sellerData["sales"], condiciones.determinePercentage(sellerData["sales"]))
-            calculateTotalIncomes = cal.calculateTotalIncomes(calculateComission, condiciones.determineBonus(sellerData["sales"]))
+            completeSellerData = resultados.showData(sellerData)
 
-            resultados.showData(sellerData)
-
-
+            sellerList.append(completeSellerData)
             #Aun en desarrollo
         
         elif option == "2":
@@ -64,7 +59,7 @@ def systemExecution():
 
         elif option == "3":
             clearScreen()
-            print("[Datos de todos los vendedores]")
+            resultados.showAllData(sellerList)
             #Aun en desarrollo
             
 
