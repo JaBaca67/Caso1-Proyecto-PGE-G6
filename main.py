@@ -17,7 +17,8 @@ def showMenu():
 
     print("1. Registrar y calcular comisiones de vendedor")
     print("2. Ver criterios de comisión y metas de bono")
-    print("3. Salir del programa")
+    print("3. Ver datos de todos los vendedores")
+    print("4. Salir del programa")
     #Nota estas opciciones del menu son temporales. Aun se pueden organizar mejor. Más tarde lo hago 😎
 
     print("═════════════════════════════════════════════════════════════════════")
@@ -27,10 +28,10 @@ def systemExecution():
     option = ""
 
     #bucle del menú principal
-    while option != 3:
+    while option != "4":
         clearScreen()
         showMenu()
-        option = input("Selccione una opción (1-3): ").strip()#Selección del menu.
+        option = input("Selccione una opción (1-4): ").strip()#Selección del menu.
         print()#Espacio en blanco
 
         if option == "1": 
@@ -44,7 +45,7 @@ def systemExecution():
             calculate_Total_Incomes = cal.calculateTotalIncomes(calculate_Comission, condiciones.determineBonus(sellerData["sales"]))
 
             resultados.showData(sellerData)
-            
+
 
             #Aun en desarrollo
         
@@ -59,13 +60,18 @@ def systemExecution():
             print("• Ventas >= $10,000    -> 15% de comisión + Bono adicional\n")
 
         elif option == "3":
+            clearScreen()
+            print("[Datos de todos los vendedores]")
+            #Aun en desarrollo
+
+        elif option == "4":
             print("Saliendo del programa...")
             break
 
         else:
-            print("Opción invalida. Porfavor, ingrese un número del 1 - 3.")
+            print("Opción invalida. Porfavor, ingrese un número del 1 - 4.")
 
-        if option != "3":
+        if option != "4":
             input("Presione enter para volver al menú principal...")
             print("\n" * 2) #Esto sirve para dejar mas espacio desues den input.
 

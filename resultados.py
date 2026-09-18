@@ -13,7 +13,7 @@ def showData(sellerData):
     print("=== DATOS DEL VENDEDOR ===")
     print(f"Vendedor: {sellerName}")
     print(f"Ventas: {sales}")
-    print(f"Porcentaje: {percentage}")
+    print(f"Porcentaje: {percentage * 100}%")
     print(f"Comisiones: {comission}")
     print(f"Bonus: {bonus}")
     print(f"Total: {total}")
