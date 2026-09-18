@@ -37,12 +37,11 @@ def systemExecution():
 
         if option == "1": 
             clearScreen()
-            sellerData = entra.readInfo()
+            sellerData = entra.readInfo()# Lee la información del vendedor y la almacena en un diccionario.
 
-            completeSellerData = resultados.showData(sellerData)
+            completeSellerData = resultados.showData(sellerData)# Muestra los datos del vendedor y calcula las comisiones y el bono, retornando un diccionario con toda la información.
 
-            sellerList.append(completeSellerData)
-            #Aun en desarrollo
+            sellerList.append(completeSellerData)# Agrega el diccionario con toda la información del vendedor a la lista de vendedores.
         
         elif option == "2":
             clearScreen()
@@ -59,7 +58,6 @@ def systemExecution():
         elif option == "3":
             clearScreen()
             resultados.showAllData(sellerList)
-            #Aun en desarrollo
             
 
         elif option == "4":
@@ -73,7 +71,8 @@ def systemExecution():
             input("Presione enter para volver al menú principal...")
             print("\n" * 2) #Esto sirve para dejar mas espacio desues den input.
 
+#Ejecuta el sistema solo si el archivo se corre directamente desde main
 if __name__ == "__main__":
-    systemExecution()
+    systemExecution() 
 
         
