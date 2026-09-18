@@ -1,9 +1,14 @@
+import validaciones
+
 def readInfo():
-    sellerName = input("Ingrese su nombre completo: ")
-    sales = float(input("Ingrese sus ventas (C$): "))
-    return {
+    sellerName = validaciones.validateName("Ingrese el nombre del vendedor: ")
+    sales = validaciones.validateSales("Ingrese el monto total de ventas: ")
+
+    SellerData = {
         "sellerName": sellerName,
         "sales": sales
     }
+
+    return SellerData
 
 
