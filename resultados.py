@@ -1,7 +1,9 @@
 from calculos import calculateComission, calculateTotalIncomes, calculateTotalSales
 from condiciones import determineBonus, determinePercentage
+import main
 
 def showData(sellerData):
+    main.clearScreen()
     sellerName = sellerData["sellerName"]
     sales = sellerData["sales"]
 
@@ -26,15 +28,17 @@ def showData(sellerData):
     return sellerData
 
 
-def showAllData(lista_vendedores):
+def showAllData(sellerLists):
     print("[Datos de todos los vendedores]")
     
-    if len(lista_vendedores) == 0:
+    if len(sellerLists) == 0:
         print("Aún no se ha registrado ningún vendedor en el sistema.")
         return # Sale de la función si está vacío
 
-    for i, sellers in enumerate(lista_vendedores, start=1):
-        print(f"--- Vendedor #{i} ---")
+
+    for i in range(len(sellerLists)):
+        sellers = sellerLists[i]
+        print(f"--- Vendedor #{i + 1} ---")
         print(f"Nombre: {sellers['sellerName']}")
         print(f"Ventas: {sellers['sales']}")
         print(f"Comisiones: {sellers['comission']}")

@@ -37,7 +37,6 @@ def systemExecution():
 
         if option == "1": 
             clearScreen()
-            print("[Módulo de Registro y Cálculo de Comisiones]")
             sellerData = entra.readInfo()
 
             completeSellerData = resultados.showData(sellerData)

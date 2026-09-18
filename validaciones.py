@@ -1,10 +1,14 @@
 #Nota para solo crear rama
-
+import  main as main
 #Modulo de Validaciones
 
-def validateSales(promptMessage):
+def validateSales(promptMessage, currentName):
     while True:
+        main.clearScreen()
+        print("[Módulo de Registro y Cálculo de Comisiones]")
+        print(f"Vendedor: {currentName}")
         try:
+            
             userInput = input(promptMessage).strip()
 
             if userInput == "":
@@ -12,8 +16,8 @@ def validateSales(promptMessage):
 
             salesAmount = float(userInput)
 
-            if salesAmount < 0:
-                raise ValueError("El valor de las ventas no puede ser negativo.")
+            if salesAmount <= 0:
+                raise ValueError("El valor de las ventas debe ser mayor a cero.")
 
             return salesAmount
 
@@ -25,8 +29,16 @@ def validateSales(promptMessage):
                 print(f"Error: {error}")
             print("Por favor, ingrese un monto válido.\n")
 
+        finally:
+            
+            print("[Verificación de entrada de ventas finalizada]")
+            input("Presione enter para continuar...")
+
 def validateName(promptMessage):
+    
     while True:
+        main.clearScreen()
+        print("[Módulo de Registro y Cálculo de Comisiones]")
         try:
             userInput = input(promptMessage).strip()
 
@@ -43,4 +55,9 @@ def validateName(promptMessage):
         except ValueError as error:
             print(f"Error: {error}")
             print("Por favor, ingrese un nombre válido.\n")
+
+        finally:
+            
+            print("[Verificación de entrada de nombre finalizada]")
+            input("Presione enter para continuar...")
 
