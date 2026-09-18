@@ -4,7 +4,7 @@ def calculate_Comission(sales, percentage=0.5):
 
 def calculate_Total_Incomes(comission, bonus=0):
     return comission + bonus
- 
+
 def calculate_Total_Sales(sales):
     return sum(sales)
 
