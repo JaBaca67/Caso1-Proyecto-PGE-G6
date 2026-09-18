@@ -1,0 +1,48 @@
+from calculos import calculateComission, calculateTotalIncomes, calculateTotalSales
+from condiciones import determineBonus, determinePercentage
+import main
+
+
+def showData(sellerData):
+    main.clearScreen()
+    sellerName = sellerData["sellerName"]
+    sales = sellerData["sales"]
+
+    percentage = determinePercentage(sales)
+    bonus = determineBonus(sales)
+    comission = calculateComission(sales, percentage)
+    total = calculateTotalIncomes(comission, bonus)
+
+    sellerData["percentage"] = percentage
+    sellerData["bonus"] = bonus
+    sellerData["comission"] = comission
+    sellerData["totalIncomes"] = total
+
+    print("=== DATOS DEL VENDEDOR ===")
+    print(f"Vendedor: {sellerName}")
+    print(f"Ventas: {sales}")
+    print(f"Porcentaje: {percentage * 100}%")
+    print(f"Comisiones: {comission}")
+    print(f"Meta Mensual (C$ 15,000):{' SUPERADA' if sellerData['bonus'] > 0 else ' NO ALCANZADA'}")
+    print(f"Bonus: {bonus}")
+    print(f"Total: {total}")
+
+    return sellerData
+
+
+def showAllData(sellerLists):
+    print("[Datos de todos los vendedores]")
+
+    if len(sellerLists) == 0:
+        print("Aún no se ha registrado ningún vendedor en el sistema.")
+        return  # Sale de la función si está vacío
+
+    for i in range(len(sellerLists)):
+        sellers = sellerLists[i]
+        print(f"--- Vendedor #{i + 1} ---")
+        print(f"Nombre: {sellers['sellerName']}")
+        print(f"Ventas: {sellers['sales']}")
+        print(f"Comisiones: {sellers['comission']}")
+        print(f"Bonus: {sellers['bonus']}")
+        print(f"Ingreso Total: {sellers['totalIncomes']}")
+        print("-" * 25)
